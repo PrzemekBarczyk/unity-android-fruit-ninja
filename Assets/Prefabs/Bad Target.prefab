@@ -125,9 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 046d19082aec785498f7671ff5b255c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVerticalForce: 10
+  maxVerticalForce: 14
   minVerticalForce: 8
-  maxHorizontalForce: 4
+  maxHorizontalForce: 5
   maxTorque: 10
   isLethal: 1
   destroyPosY: -6

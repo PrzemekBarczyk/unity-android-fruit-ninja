@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    [SerializeField] float maxVerticalForce = 10f;
+    [SerializeField] float maxVerticalForce = 14f;
     [SerializeField] float minVerticalForce = 8f;
-    [SerializeField] float maxHorizontalForce = 4f;
+    [SerializeField] float maxHorizontalForce = 5f;
     [SerializeField] float maxTorque = 10f;
 
     [SerializeField] bool isLethal;
