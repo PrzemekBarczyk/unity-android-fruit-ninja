@@ -1,0 +1,59 @@
+using UnityEngine;
+
+public class Target : MonoBehaviour
+{
+    [SerializeField] float maxVerticalForce = 10f;
+    [SerializeField] float minVerticalForce = 8f;
+    [SerializeField] float maxHorizontalForce = 4f;
+    [SerializeField] float maxTorque = 10f;
+
+    [SerializeField] bool isLethal;
+
+    [SerializeField] float destroyPosY = -6f;
+
+    Rigidbody myRigidbody;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        myRigidbody = GetComponent<Rigidbody>();
+        myRigidbody.AddForce(RandomForce(), ForceMode.Impulse);
+        myRigidbody.AddTorque(RandomTorque(), ForceMode.Impulse);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (transform.position.y < destroyPosY)
+		{
+            Destroy(gameObject);
+            if (!isLethal)
+            {
+                Debug.Log("Game Over");
+            }
+        }
+    }
+
+	void OnMouseDown()
+	{
+        Destroy(gameObject);
+        if (isLethal)
+		{
+            Debug.Log("Game Over");
+        }
+		else
+		{
+            Debug.Log("+1 point");
+        }
+	}
+
+	public Vector3 RandomForce()
+	{
+        return new Vector3(Random.Range(-maxHorizontalForce, maxHorizontalForce), Random.Range(minVerticalForce, maxVerticalForce), 0f);
+	}
+
+    public Vector3 RandomTorque()
+	{
+        return new Vector3(Random.Range(-maxTorque, maxTorque), Random.Range(-maxTorque, maxTorque), Random.Range(-maxTorque, maxTorque));
+	}
+}
