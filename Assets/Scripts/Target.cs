@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
+    GameManager gameManager;
+
+    [SerializeField] int points = 1;
+
     [SerializeField] float maxVerticalForce = 14f;
     [SerializeField] float minVerticalForce = 8f;
     [SerializeField] float maxHorizontalForce = 5f;
@@ -16,6 +20,7 @@ public class Target : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         myRigidbody = GetComponent<Rigidbody>();
         myRigidbody.AddForce(RandomForce(), ForceMode.Impulse);
         myRigidbody.AddTorque(RandomTorque(), ForceMode.Impulse);
@@ -29,7 +34,7 @@ public class Target : MonoBehaviour
             Destroy(gameObject);
             if (!isLethal)
             {
-                Debug.Log("Game Over");
+                gameManager.RemoveLife();
             }
         }
     }
@@ -39,11 +44,11 @@ public class Target : MonoBehaviour
         Destroy(gameObject);
         if (isLethal)
 		{
-            Debug.Log("Game Over");
+            gameManager.RemoveLife();
         }
 		else
 		{
-            Debug.Log("+1 point");
+            gameManager.AddScore(points);
         }
 	}
 

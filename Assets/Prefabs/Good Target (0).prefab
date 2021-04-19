@@ -125,6 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 046d19082aec785498f7671ff5b255c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  points: 1
   maxVerticalForce: 14
   minVerticalForce: 8
   maxHorizontalForce: 5
