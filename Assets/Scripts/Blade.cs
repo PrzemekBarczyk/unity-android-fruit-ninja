@@ -8,7 +8,7 @@ public class Blade : MonoBehaviour
     GameObject bladeTrailInstantion;
 
     Rigidbody myRigidbody;
-    SphereCollider sphereCollider;
+    BoxCollider boxCollider;
 
     bool isCutting;
 
@@ -17,7 +17,7 @@ public class Blade : MonoBehaviour
     {
         mainCamera = Camera.main;
         myRigidbody = GetComponent<Rigidbody>();
-        sphereCollider = GetComponent<SphereCollider>();
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class Blade : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
 		{
             isCutting = true;
-            sphereCollider.enabled = true;
+            boxCollider.enabled = true;
             myRigidbody.position = NewPosition();
 			transform.position = myRigidbody.position;
 			bladeTrailInstantion = Instantiate(bladeTrailPrefab, transform);
@@ -34,7 +34,7 @@ public class Blade : MonoBehaviour
         else if (Input.GetMouseButtonUp(0))
 		{
             isCutting = false;
-            sphereCollider.enabled = false;
+            boxCollider.enabled = false;
             Destroy(bladeTrailInstantion);
 		}
 
