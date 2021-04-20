@@ -2,30 +2,60 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static bool IsRunning { get; private set; }
+
     [SerializeField] int score;
     [SerializeField] int lives = 3;
+    int actualScore;
+    int actualLives;
 
-    [SerializeField] HUDManager hudManager;
+    [SerializeField] UIManager uiManager;
 
-    void Start()
-    {
-        hudManager.UpdateScore(score);
-        hudManager.UpdateLives(lives);
-    }
+	void Start()
+	{
+        actualScore = score;
+        actualLives = lives;
+	}
+
+	public void StartGame()
+	{
+        actualScore = score;
+        actualLives = lives;
+        uiManager.UpdateScore(score);
+        uiManager.UpdateLives(lives);
+        uiManager.DisplayMainMenu(false);
+        uiManager.DisplayHUD(true);
+        IsRunning = true;
+	}
+
+    public void ExitGame()
+	{
+        Application.Quit();
+	}
+
+    public void GameOver()
+	{
+        if (IsRunning)
+		{
+            IsRunning = false;
+            uiManager.DisplayHUD(false);
+            uiManager.DisplayMainMenu(true);
+        }
+	}
 
     public void AddScore(int scoreToAdd)
 	{
-        score += scoreToAdd;
-        hudManager.UpdateScore(score);
+        actualScore += scoreToAdd;
+        uiManager.UpdateScore(actualScore);
 	}
 
     public void RemoveLife()
 	{
-        lives--;
-        hudManager.UpdateLives(lives);
-        if (lives == 0)
+        actualLives--;
+        uiManager.UpdateLives(actualLives);
+        if (actualLives == 0)
 		{
-            Debug.Log("Game Over");
+            GameOver();
 		}
 	}
 }
