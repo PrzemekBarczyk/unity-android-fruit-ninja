@@ -39,18 +39,21 @@ public class Target : MonoBehaviour
         }
     }
 
-	void OnMouseDown()
+    public void HandleHit()
 	{
         Destroy(gameObject);
-        if (isLethal)
+        if (gameObject != null)
 		{
-            gameManager.RemoveLife();
+            if (isLethal)
+            {
+                gameManager.RemoveLife();
+            }
+            else
+            {
+                gameManager.AddScore(points);
+            }
         }
-		else
-		{
-            gameManager.AddScore(points);
-        }
-	}
+    }
 
 	public Vector3 RandomForce()
 	{
