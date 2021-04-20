@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
 
 	[SerializeField] GameObject mainMenu;
 
+	[SerializeField] GameObject pauseMenu;
+
 	public void DisplayHUD(bool display)
 	{
 		hud.SetActive(display);
@@ -27,5 +29,10 @@ public class UIManager : MonoBehaviour
 	public void DisplayMainMenu(bool display)
 	{
 		mainMenu.SetActive(display);
+	}
+
+	public void DisplayPauseMenu(bool display)
+	{
+		pauseMenu.SetActive(display);
 	}
 }

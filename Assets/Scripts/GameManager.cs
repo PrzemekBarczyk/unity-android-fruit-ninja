@@ -1,8 +1,10 @@
 using UnityEngine;
 
+public enum State { MainMenu, PauseMenu, Playing };
+
 public class GameManager : MonoBehaviour
 {
-    public static bool IsRunning { get; private set; }
+    public static State State { get; private set; } = State.MainMenu;
 
     [SerializeField] int score;
     [SerializeField] int lives = 3;
@@ -17,6 +19,21 @@ public class GameManager : MonoBehaviour
         actualLives = lives;
 	}
 
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+            if (State == State.Playing)
+			{
+                PauseGame();
+			}
+			else if (State == State.PauseMenu)
+			{
+                ContinueGame();
+			}
+		}
+	}
+
 	public void StartGame()
 	{
         actualScore = score;
@@ -25,7 +42,7 @@ public class GameManager : MonoBehaviour
         uiManager.UpdateLives(lives);
         uiManager.DisplayMainMenu(false);
         uiManager.DisplayHUD(true);
-        IsRunning = true;
+        State = State.Playing;
 	}
 
     public void ExitGame()
@@ -33,11 +50,25 @@ public class GameManager : MonoBehaviour
         Application.Quit();
 	}
 
+    public void PauseGame()
+	{
+        State = State.PauseMenu;
+        Time.timeScale = 0f;
+        uiManager.DisplayPauseMenu(true);
+	}
+
+    public void ContinueGame()
+	{
+        uiManager.DisplayPauseMenu(false);
+        Time.timeScale = 1f;
+        State = State.Playing;
+    }
+
     public void GameOver()
 	{
-        if (IsRunning)
+        if (State == State.Playing)
 		{
-            IsRunning = false;
+            State = State.MainMenu;
             uiManager.DisplayHUD(false);
             uiManager.DisplayMainMenu(true);
         }

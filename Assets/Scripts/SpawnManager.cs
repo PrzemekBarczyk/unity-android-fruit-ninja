@@ -24,7 +24,7 @@ public class SpawnManager : MonoBehaviour
         while (true)
 		{
             yield return new WaitForSeconds(Random.Range(minSpawnRate, maxSpawnRate));
-            if (GameManager.IsRunning)
+            if (GameManager.State == State.Playing)
 			{
                 int randomTargetIndex = Random.Range(0, targetPrefabs.Length);
                 Instantiate(targetPrefabs[randomTargetIndex], transform.position, transform.rotation);
