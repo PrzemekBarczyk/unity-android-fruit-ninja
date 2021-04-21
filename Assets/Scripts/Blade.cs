@@ -7,6 +7,10 @@ public class Blade : MonoBehaviour
     [SerializeField] GameObject bladeTrailPrefab;
     GameObject bladeTrailInstantion;
 
+    [SerializeField] float minCutVelocity = 0.1f;
+
+    Vector2 previousPosition;
+
     Rigidbody myRigidbody;
     BoxCollider boxCollider;
 
@@ -26,7 +30,7 @@ public class Blade : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
 		{
             isCutting = true;
-            boxCollider.enabled = true;
+            boxCollider.enabled = false;
             myRigidbody.position = NewPosition();
 			transform.position = myRigidbody.position;
 			bladeTrailInstantion = Instantiate(bladeTrailPrefab, transform);
@@ -40,7 +44,19 @@ public class Blade : MonoBehaviour
 
         if (isCutting)
 		{
+            previousPosition = myRigidbody.position;
             myRigidbody.position = NewPosition();
+
+            float velocity = (NewPosition() - previousPosition).magnitude / Time.deltaTime;
+
+            if (velocity > minCutVelocity)
+			{
+                boxCollider.enabled = true;
+			}
+			else
+			{
+                boxCollider.enabled = false;
+			}
 		}
     }
 
