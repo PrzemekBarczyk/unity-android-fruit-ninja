@@ -3,6 +3,9 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     GameManager gameManager;
+    GameObject spawnManager;
+
+    [SerializeField] GameObject slicedPrefab;
 
     [SerializeField] int points = 1;
 
@@ -21,12 +24,12 @@ public class Target : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        spawnManager = GameObject.Find("Spawn Manager");
         myRigidbody = GetComponent<Rigidbody>();
         myRigidbody.AddForce(RandomForce(), ForceMode.Impulse);
         myRigidbody.AddTorque(RandomTorque(), ForceMode.Impulse);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (transform.position.y < destroyPosY)
@@ -41,6 +44,15 @@ public class Target : MonoBehaviour
 
     public void HandleHit()
 	{
+        if (!isLethal)
+		{
+            GameObject sliced = Instantiate(slicedPrefab, transform.position, transform.rotation, spawnManager.transform);
+            foreach (Rigidbody s in sliced.GetComponentsInChildren<Rigidbody>())
+			{
+                s.velocity = myRigidbody.velocity;
+                s.angularVelocity = myRigidbody.angularVelocity;
+			}
+		}
         Destroy(gameObject);
         if (gameObject != null)
 		{

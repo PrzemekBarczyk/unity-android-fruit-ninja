@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 046d19082aec785498f7671ff5b255c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slicedPrefab: {fileID: 3200331643819830423, guid: f6187dcb053152d4b95b56578f9ce978, type: 3}
   points: 1
   maxVerticalForce: 14
   minVerticalForce: 8
