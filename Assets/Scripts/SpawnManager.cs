@@ -27,7 +27,7 @@ public class SpawnManager : MonoBehaviour
             if (GameManager.State == State.Playing)
 			{
                 int randomTargetIndex = Random.Range(0, targetPrefabs.Length);
-                Instantiate(targetPrefabs[randomTargetIndex], transform.position, transform.rotation);
+                Instantiate(targetPrefabs[randomTargetIndex], transform);
             }
         }
 	}
