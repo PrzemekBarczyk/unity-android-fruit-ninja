@@ -66,7 +66,7 @@ public class Blade : MonoBehaviour
 		{
             if (other.gameObject != null)
 			{
-                other.GetComponent<Target>().HandleHit();
+                other.GetComponent<Target>().HandleHit(transform.position);
             }
 		}
 	}

@@ -6,6 +6,7 @@ public class Target : MonoBehaviour
     GameObject spawnManager;
 
     [SerializeField] GameObject slicedPrefab;
+    [SerializeField] ParticleSystem sliceParticles;
 
     [SerializeField] int points = 1;
 
@@ -42,20 +43,30 @@ public class Target : MonoBehaviour
         }
     }
 
-    public void HandleHit()
+    public void HandleHit(Vector3 hitPosititon)
 	{
-        if (!isLethal)
-		{
-            GameObject sliced = Instantiate(slicedPrefab, transform.position, transform.rotation, spawnManager.transform);
-            foreach (Rigidbody s in sliced.GetComponentsInChildren<Rigidbody>())
-			{
-                s.velocity = myRigidbody.velocity;
-                s.angularVelocity = myRigidbody.angularVelocity;
-			}
-		}
-        Destroy(gameObject);
         if (gameObject != null)
-		{
+        {
+            if (!isLethal)
+		    {
+                GameObject sliced = Instantiate(slicedPrefab, transform.position, transform.rotation, spawnManager.transform);
+                foreach (Rigidbody s in sliced.GetComponentsInChildren<Rigidbody>())
+			    {
+                    s.velocity = myRigidbody.velocity;
+                    s.angularVelocity = myRigidbody.angularVelocity;
+			    }
+                var particles = Instantiate(sliceParticles, transform.position, Quaternion.LookRotation(-(hitPosititon - transform.position).normalized));
+                Destroy(particles.gameObject, 2f);
+
+            }
+            else
+			{
+                var particles = Instantiate(sliceParticles, transform.position, Quaternion.Euler(Vector3.up));
+                Destroy(particles.gameObject, 5f);
+            }
+        
+            Destroy(gameObject);
+
             if (isLethal)
             {
                 gameManager.RemoveLife();
