@@ -7,6 +7,8 @@ public class Target : MonoBehaviour
 
     [SerializeField] GameObject slicedPrefab;
     [SerializeField] ParticleSystem sliceParticles;
+    [SerializeField] AudioClip[] sliceSFXs;
+    [SerializeField] AudioClip missedSFX;
 
     [SerializeField] int points = 1;
 
@@ -38,6 +40,7 @@ public class Target : MonoBehaviour
             Destroy(gameObject);
             if (!isLethal)
             {
+                AudioSource.PlayClipAtPoint(missedSFX, transform.position);
                 gameManager.RemoveLife();
             }
         }
@@ -64,7 +67,8 @@ public class Target : MonoBehaviour
                 var particles = Instantiate(sliceParticles, transform.position, Quaternion.Euler(Vector3.up));
                 Destroy(particles.gameObject, 5f);
             }
-        
+
+            AudioSource.PlayClipAtPoint(RandomSound(), transform.position);
             Destroy(gameObject);
 
             if (isLethal)
@@ -86,5 +90,11 @@ public class Target : MonoBehaviour
     public Vector3 RandomTorque()
 	{
         return new Vector3(Random.Range(-maxTorque, maxTorque), Random.Range(-maxTorque, maxTorque), Random.Range(-maxTorque, maxTorque));
+	}
+
+    public AudioClip RandomSound()
+	{
+        int randomIndex = Random.Range(0, sliceSFXs.Length);
+        return sliceSFXs[randomIndex];
 	}
 }

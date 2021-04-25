@@ -147,6 +147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slicedPrefab: {fileID: 0}
   sliceParticles: {fileID: 19821056, guid: 079954accd64b32419ec069129c81273, type: 3}
+  sliceSFXs:
+  - {fileID: 8300000, guid: 774ebc5c074ce4695b7cc310fbd44087, type: 3}
   points: 1
   maxVerticalForce: 14
   minVerticalForce: 8
