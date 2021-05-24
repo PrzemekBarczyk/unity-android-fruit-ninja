@@ -5,6 +5,7 @@ public class UIManager : MonoBehaviour
 {
 	[SerializeField] GameObject hud;
     [SerializeField] Text scoreText;
+	[SerializeField] Text bestScoreText;
     [SerializeField] Text livesText;
 
 	[SerializeField] GameObject mainMenu;
@@ -19,6 +20,11 @@ public class UIManager : MonoBehaviour
 	public void UpdateScore(int newScore)
 	{
         scoreText.text = "Score: " + newScore.ToString();
+	}
+
+	public void UpdateBestScore(int newBestScore)
+	{
+		bestScoreText.text = "Best score: " + newBestScore.ToString();
 	}
 
     public void UpdateLives(int newLives)

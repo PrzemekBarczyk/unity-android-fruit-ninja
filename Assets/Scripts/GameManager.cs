@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
         actualScore = score;
         actualLives = lives;
         uiManager.UpdateScore(score);
+        uiManager.UpdateBestScore(PlayerPrefs.GetInt("best score"));
         uiManager.UpdateLives(lives);
         uiManager.DisplayMainMenu(false);
         uiManager.DisplayHUD(true);
@@ -68,6 +69,8 @@ public class GameManager : MonoBehaviour
 	{
         if (State == State.Playing)
 		{
+            if (actualScore > PlayerPrefs.GetInt("best score"))
+                PlayerPrefs.SetInt("best score", actualScore);
             State = State.MainMenu;
             uiManager.DisplayHUD(false);
             uiManager.DisplayMainMenu(true);
