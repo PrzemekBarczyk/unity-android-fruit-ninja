@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1135418913625657211}
   - component: {fileID: 3503684127918300788}
   - component: {fileID: 8890026982794900888}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pizza
   m_TagString: Target
   m_Icon: {fileID: 0}
@@ -135,9 +135,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a5406be214f159a4abfedff134037b3d, type: 3}
   missedSFX: {fileID: 8300000, guid: 45a5ea1fed2ac4325ba2f0415cde6b34, type: 3}
   points: 1
-  maxVerticalForce: 14
-  minVerticalForce: 8
-  maxHorizontalForce: 5
-  maxTorque: 10
   isLethal: 0
   destroyPosY: -6

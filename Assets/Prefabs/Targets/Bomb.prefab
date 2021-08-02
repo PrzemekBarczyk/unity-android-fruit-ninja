@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6690984074906508205}
   - component: {fileID: 517354746727643065}
   - component: {fileID: 931673624885942058}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bomb
   m_TagString: Target
   m_Icon: {fileID: 0}
@@ -149,10 +149,7 @@ MonoBehaviour:
   sliceParticles: {fileID: 19821056, guid: 079954accd64b32419ec069129c81273, type: 3}
   sliceSFXs:
   - {fileID: 8300000, guid: 774ebc5c074ce4695b7cc310fbd44087, type: 3}
+  missedSFX: {fileID: 0}
   points: 1
-  maxVerticalForce: 14
-  minVerticalForce: 8
-  maxHorizontalForce: 5
-  maxTorque: 10
   isLethal: 1
   destroyPosY: -6

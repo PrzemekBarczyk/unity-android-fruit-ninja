@@ -2,78 +2,53 @@ using UnityEngine;
 
 public class Blade : MonoBehaviour
 {
-    Camera mainCamera;
-
     [SerializeField] GameObject bladeTrailPrefab;
     GameObject bladeTrailInstantion;
 
-    [SerializeField] float minCutVelocity = 0.1f;
+    [SerializeField] LayerMask targetLayer;
 
-    Vector2 previousPosition;
+    [SerializeField] Vector3 raycastOffset = new Vector3(0f, 0f, -5f); // to avoid casting rays from inside of targets
 
-    Rigidbody myRigidbody;
-    BoxCollider boxCollider;
+    [SerializeField] float minCutVelocity = 0.1f; // to lock cutting when blade not moving
 
-    bool isCutting;
+    Vector3 previousPosition;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        mainCamera = Camera.main;
-        myRigidbody = GetComponent<Rigidbody>();
-        boxCollider = GetComponent<BoxCollider>();
-    }
+    bool mouseLeftKeyPressed;
 
-    // Update is called once per frame
-    void Update()
+	void Update()
     {
         if (Input.GetMouseButtonDown(0))
 		{
-            isCutting = true;
-            boxCollider.enabled = false;
-            myRigidbody.position = NewPosition();
-			transform.position = myRigidbody.position;
+            mouseLeftKeyPressed = true;
+
+			transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) * Vector2.one;
+            previousPosition = transform.position;
+
 			bladeTrailInstantion = Instantiate(bladeTrailPrefab, transform);
 		}
         else if (Input.GetMouseButtonUp(0))
 		{
-            isCutting = false;
-            boxCollider.enabled = false;
+            mouseLeftKeyPressed = false;
+
             Destroy(bladeTrailInstantion);
 		}
 
-        if (isCutting)
+        if (mouseLeftKeyPressed)
 		{
-            previousPosition = myRigidbody.position;
-            myRigidbody.position = NewPosition();
+            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) * Vector2.one;
 
-            float velocity = (NewPosition() - previousPosition).magnitude / Time.deltaTime;
+            float velocity = ((transform.position - previousPosition).magnitude) / Time.deltaTime;
 
             if (velocity > minCutVelocity)
 			{
-                boxCollider.enabled = true;
-			}
-			else
-			{
-                boxCollider.enabled = false;
-			}
-		}
-    }
-
-	void OnTriggerEnter(Collider other)
-	{
-		if (other.CompareTag("Target"))
-		{
-            if (other.gameObject != null)
-			{
-                other.GetComponent<Target>().HandleHit(transform.position);
+                RaycastHit rayHit;
+                if (Physics.Raycast(transform.position + raycastOffset, Vector3.forward, out rayHit, 100f, targetLayer))
+                {
+                    rayHit.transform.GetComponent<Target>().CutWithBlade(transform.position);
+                }
             }
-		}
-	}
 
-	Vector2 NewPosition()
-	{
-        Vector3 newPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        return new Vector3(newPosition.x, newPosition.y);
+            previousPosition = transform.position;
+        }
     }
 }

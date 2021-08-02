@@ -42,7 +42,7 @@ public class Target : MonoBehaviour
         }
     }
 
-    public void HandleHit(Vector3 hitPosititon)
+    public void CutWithBlade(Vector3 hitPosititon)
 	{
         if (gameObject != null)
         {
