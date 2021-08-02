@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 805928608796001210}
   - component: {fileID: 2809843313418019651}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Apple_01_Sliced
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 2102157073748316255}
   - component: {fileID: 4384889785416284370}
   - component: {fileID: 8019795898754956905}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Apple_01_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 5523854490052683752}
   - component: {fileID: 8847546428209140858}
   - component: {fileID: 3180248322292727332}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Apple_01_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}

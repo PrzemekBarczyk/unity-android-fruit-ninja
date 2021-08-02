@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2615570768481423194}
   - component: {fileID: -1257768812880920860}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Carrot_Sliced
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 3817880211729050371}
   - component: {fileID: 6551763137795640380}
   - component: {fileID: 8258674167028264126}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Carrot_Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 6169635526037350373}
   - component: {fileID: 2878165450854469227}
   - component: {fileID: 1883364900274805648}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Carrot_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1991,10 +1991,10 @@ MonoBehaviour:
   - {fileID: 8890026982794900888, guid: 06cdf427476835b42837c1ca7f8cdbd1, type: 3}
   - {fileID: 1430769599019246730, guid: 5b10c1fadcedc4347b929c94cb50d5d3, type: 3}
   - {fileID: 4468391891414428176, guid: 9f063c5e5835cbd4b8dc54a6c0b45db4, type: 3}
-  minSpawnRate: 0.5
-  maxSpawnRate: 3
+  minSpawnRate: 0.1
+  maxSpawnRate: 2
   maxVerticalForce: 14
-  minVerticalForce: 8
+  minVerticalForce: 10
   maxHorizontalForce: 5
   maxTorque: 10
 --- !u!4 &1751316443

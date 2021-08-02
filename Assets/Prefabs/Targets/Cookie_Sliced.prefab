@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7641894135316245672}
   - component: {fileID: 1779742154374474457}
   - component: {fileID: 7061590417460027359}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cookie_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 6276521191426488311}
   - component: {fileID: 5321912149557240169}
   - component: {fileID: 2558802712496895487}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cookie_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5054598145024803907}
   - component: {fileID: -4106288012050584820}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cookie_Sliced
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 422136248308373344}
   - component: {fileID: 4320338637686120285}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fish_Sliced
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 8439752044817657097}
   - component: {fileID: 711605841541106700}
   - component: {fileID: 2232899851959184062}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fish_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 8552335876185845410}
   - component: {fileID: 4028893387477630253}
   - component: {fileID: 7374209098051844916}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fish_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}

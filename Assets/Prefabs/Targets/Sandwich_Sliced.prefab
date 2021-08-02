@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4432944602443248578}
   - component: {fileID: 4605188813349212816}
   - component: {fileID: 7205850650443256125}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sandwich_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 298989133216463625}
   - component: {fileID: 9004627611697536198}
   - component: {fileID: 6311486730292407691}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sandwich_Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6831602781960219444}
   - component: {fileID: -6661564453933366037}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sandwich_Sliced
   m_TagString: Untagged
   m_Icon: {fileID: 0}

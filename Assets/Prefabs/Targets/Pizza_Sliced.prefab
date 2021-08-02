@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2819829511160526381}
   - component: {fileID: -6814676634112653349}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pizza_Sliced
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 8958611877234591903}
   - component: {fileID: 3950130270460060017}
   - component: {fileID: 1920964930593965032}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pizza_Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 974414003974824314}
   - component: {fileID: 3022778354919362401}
   - component: {fileID: 8732503181798732466}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pizza_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}

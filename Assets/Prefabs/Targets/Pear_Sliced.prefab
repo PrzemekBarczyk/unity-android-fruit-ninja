@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 752347061506026565}
   - component: {fileID: 3265677812106752687}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pear_Sliced
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 502978031002159838}
   - component: {fileID: 6152089413619235535}
   - component: {fileID: 6131400781094902849}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pear_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 3685609437804210423}
   - component: {fileID: 1000368916784460811}
   - component: {fileID: 2655279389363136135}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pear_Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
