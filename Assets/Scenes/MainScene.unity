@@ -2008,18 +2008,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPrefabs:
-  - {fileID: 1902926406981984, guid: 666ff701b211d6440b7bd44aa7b3abfa, type: 3}
-  - {fileID: 101770, guid: c13306d1f1d9a1a489199ef77f9dba89, type: 3}
-  - {fileID: 126446, guid: c2f4b43f266dc11439efef86830dafb4, type: 3}
-  - {fileID: 181360, guid: bd519f706f8c5cf4dad9fed04ab5b64b, type: 3}
-  - {fileID: 100000, guid: 10d25933610222845ad3760a855829c4, type: 3}
-  - {fileID: 160006, guid: 245ebd2bf811d4f45a1d5dcd8c327131, type: 3}
-  - {fileID: 120208, guid: 4949a22a2c444b0459d7289aae77be28, type: 3}
-  - {fileID: 100000, guid: 06cdf427476835b42837c1ca7f8cdbd1, type: 3}
-  - {fileID: 100000, guid: 5b10c1fadcedc4347b929c94cb50d5d3, type: 3}
-  - {fileID: 116614, guid: 9f063c5e5835cbd4b8dc54a6c0b45db4, type: 3}
+  - {fileID: -1774034766663812841, guid: c13306d1f1d9a1a489199ef77f9dba89, type: 3}
+  - {fileID: 623854349770038385, guid: c2f4b43f266dc11439efef86830dafb4, type: 3}
+  - {fileID: 931673624885942058, guid: 666ff701b211d6440b7bd44aa7b3abfa, type: 3}
+  - {fileID: -9091723381210896725, guid: bd519f706f8c5cf4dad9fed04ab5b64b, type: 3}
+  - {fileID: 918389294767368237, guid: 10d25933610222845ad3760a855829c4, type: 3}
+  - {fileID: 2111292494161331910, guid: 245ebd2bf811d4f45a1d5dcd8c327131, type: 3}
+  - {fileID: -3904276442019377759, guid: 4949a22a2c444b0459d7289aae77be28, type: 3}
+  - {fileID: 8890026982794900888, guid: 06cdf427476835b42837c1ca7f8cdbd1, type: 3}
+  - {fileID: 1430769599019246730, guid: 5b10c1fadcedc4347b929c94cb50d5d3, type: 3}
+  - {fileID: 4468391891414428176, guid: 9f063c5e5835cbd4b8dc54a6c0b45db4, type: 3}
   minSpawnRate: 0.5
   maxSpawnRate: 3
+  maxVerticalForce: 14
+  minVerticalForce: 8
+  maxHorizontalForce: 5
+  maxTorque: 10
 --- !u!4 &1751316443
 Transform:
   m_ObjectHideFlags: 0
