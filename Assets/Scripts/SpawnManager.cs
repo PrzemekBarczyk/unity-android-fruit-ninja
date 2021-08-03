@@ -7,8 +7,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] Target[] targetPrefabs;
 
     [Header("Targets Spawn Rate")]
-    [SerializeField] float minSpawnRate;
-    [SerializeField] float maxSpawnRate;
+    [SerializeField] float minSpawnRate = 0.05f;
+    [SerializeField] float maxSpawnRate = 2f;
 
     [Header("Forces Values Applied to Targets at Start")]
     [SerializeField] float maxVerticalForce = 14f;
@@ -16,8 +16,11 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] float maxHorizontalForce = 5f;
     [SerializeField] float maxTorque = 10f;
 
+    GameManager gameManager;
+
     void Start()
     {
+        gameManager = GameManager.Instance;
         StartCoroutine(SpawnAndThrowTarget());
     }
 
@@ -27,7 +30,7 @@ public class SpawnManager : MonoBehaviour
 		{
             yield return new WaitForSeconds(Random.Range(minSpawnRate, maxSpawnRate));
 
-            if (GameManager.State == State.Playing)
+            if (gameManager.State == State.Playing)
 			{
                 int randomTargetIndex = Random.Range(0, targetPrefabs.Length);
                 Target newTarget = Instantiate(targetPrefabs[randomTargetIndex], transform);

@@ -4,7 +4,7 @@ public enum State { MainMenu, PauseMenu, Playing };
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    public static State State { get; private set; } = State.MainMenu;
+    public State State { get; private set; } = State.MainMenu;
 
     [SerializeField] int score;
     [SerializeField] int lives = 3;
