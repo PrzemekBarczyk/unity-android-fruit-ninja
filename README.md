@@ -3,15 +3,23 @@ Simple replica of mobile game.
 
 ## Table of Contents
 * [General info](#general-info)
+* [Screenshoots and video](#screenshoots-and-video)
 * [Technologies](#technologies)
 
 ## General info
-When play button in main manu is clicked game starts. Targets spawn under the screen with random up force and torque.
-Player goal is to cut "good" targets before they leave screen and avoid "bad" target. To cut you have to touch screen
-and move. Good targets are food models, bad are bombs. If player makes a mistake, he loses a single life. When he lose 
-all lives, game ends.
+During game targets spawn below the screen at random rate from where they are thrown onto screen. Player goal is to slice food targets before they leave screen bottom and avoid bombs. Each missed food target and sliced bomb take us one live. When player loose three lives, game ends.
 
-![game](https://user-images.githubusercontent.com/62331993/119364520-47830680-bcaf-11eb-9a36-b21d40cc93f3.PNG)
+## Screenshoots and video
+![main menu](https://user-images.githubusercontent.com/62331993/128024506-7c3d5084-d8e9-4846-ac22-74be441a8932.png)
+*Main menu*
+
+![game](https://user-images.githubusercontent.com/62331993/128025005-d803d704-a02f-463f-a00f-2cfd3742f84f.png)
+*Game*
+
+[![video](https://img.youtube.com/vi/YSWX8HTVqnI/0.jpg)](https://www.youtube.com/watch?v=YSWX8HTVqnI)
+
+*Gameplay video*
+
 
 ## Technologies
 * Unity 2020.3.1f1
