@@ -1,12 +1,12 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
 	[SerializeField] GameObject hud;
-    [SerializeField] Text scoreText;
-	[SerializeField] Text bestScoreText;
-    [SerializeField] Text livesText;
+    [SerializeField] TextMeshProUGUI scoreText;
+	[SerializeField] TextMeshProUGUI bestScoreText;
+    [SerializeField] TextMeshProUGUI livesText;
 
 	[SerializeField] GameObject mainMenu;
 
@@ -19,12 +19,12 @@ public class UIManager : MonoBehaviour
 
 	public void UpdateScore(int newScore)
 	{
-        scoreText.text = "Score: " + newScore.ToString();
+        scoreText.text = newScore.ToString();
 	}
 
 	public void UpdateBestScore(int newBestScore)
 	{
-		bestScoreText.text = "Best score: " + newBestScore.ToString();
+		bestScoreText.text = "BEST " + newBestScore.ToString();
 	}
 
     public void UpdateLives(int newLives)
