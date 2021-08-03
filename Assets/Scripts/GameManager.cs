@@ -2,7 +2,7 @@ using UnityEngine;
 
 public enum State { MainMenu, PauseMenu, Playing };
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoSingleton<GameManager>
 {
     public static State State { get; private set; } = State.MainMenu;
 

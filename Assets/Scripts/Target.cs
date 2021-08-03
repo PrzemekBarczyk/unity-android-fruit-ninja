@@ -25,7 +25,7 @@ public class Target : MonoBehaviour
 
     void Start()
     {
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        gameManager = GameManager.Instance;
         spawnManager = GameObject.Find("Spawn Manager");
     }
 
