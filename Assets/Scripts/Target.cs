@@ -69,7 +69,7 @@ public class Target : MonoBehaviour
 
             if (isLethal)
             {
-                gameManager.RemoveLife();
+                gameManager.RemoveAllLives();
             }
             else
             {

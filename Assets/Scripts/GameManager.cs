@@ -83,6 +83,13 @@ public class GameManager : MonoSingleton<GameManager>
         uiManager.UpdateScore(actualScore);
 	}
 
+    public void RemoveAllLives()
+	{
+        actualLives = 0;
+        uiManager.UpdateLives(actualLives);
+        GameOver();
+    }
+
     public void RemoveLife()
 	{
         actualLives--;
