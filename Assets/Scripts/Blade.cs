@@ -9,46 +9,39 @@ public class Blade : MonoBehaviour
 
     [SerializeField] Vector3 raycastOffset = new Vector3(0f, 0f, -5f); // to avoid casting rays from inside of targets
 
-    [SerializeField] float minCutVelocity = 0.1f; // to lock cutting when blade not moving
-
-    Vector3 previousPosition;
-
-    bool mouseLeftKeyPressed;
+    bool isCutting;
 
 	void Update()
     {
         if (Input.GetMouseButtonDown(0))
 		{
-            mouseLeftKeyPressed = true;
-
-			transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) * Vector2.one;
-            previousPosition = transform.position;
-
-			bladeTrailInstantion = Instantiate(bladeTrailPrefab, transform);
+            isCutting = true;
+            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) * Vector2.one;
+            bladeTrailInstantion = Instantiate(bladeTrailPrefab, transform);
 		}
-        else if (Input.GetMouseButtonUp(0))
+		else if (Input.GetMouseButtonUp(0))
 		{
-            mouseLeftKeyPressed = false;
-
+            isCutting = false;
             Destroy(bladeTrailInstantion);
-		}
+        }
 
-        if (mouseLeftKeyPressed)
+        if (isCutting)
 		{
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) * Vector2.one;
 
-            float velocity = ((transform.position - previousPosition).magnitude) / Time.deltaTime;
+            bool bladeMoved = Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Moved;
 
-            if (velocity > minCutVelocity)
-			{
+            if (Application.platform == RuntimePlatform.WindowsEditor && Input.touchCount == 0)
+                bladeMoved = Input.GetAxisRaw("Mouse X") != 0f || Input.GetAxisRaw("Mouse Y") != 0f;
+
+            if (bladeMoved)
+            {
                 RaycastHit rayHit;
                 if (Physics.Raycast(transform.position + raycastOffset, Vector3.forward, out rayHit, 100f, targetLayer))
                 {
                     rayHit.transform.GetComponent<Target>().CutWithBlade(transform.position);
                 }
             }
-
-            previousPosition = transform.position;
         }
     }
 }
