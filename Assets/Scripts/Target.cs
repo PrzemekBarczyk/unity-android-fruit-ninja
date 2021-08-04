@@ -33,7 +33,7 @@ public class Target : MonoBehaviour
     {
         if (transform.position.y < destroyPosY)
 		{
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             if (!isLethal)
             {
                 AudioSource.PlayClipAtPoint(missedSFX, transform.position);
@@ -65,7 +65,7 @@ public class Target : MonoBehaviour
             }
 
             AudioSource.PlayClipAtPoint(RandomSound(), transform.position);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
 
             if (isLethal)
             {
