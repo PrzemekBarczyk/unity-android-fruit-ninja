@@ -43,7 +43,7 @@ public class ObjectPooler : MonoBehaviour
 	{
         Target objectToSpawn = _pools[index].Dequeue();
 
-        objectToSpawn.transform.SetPositionAndRotation(transform.position, transform.rotation);
+        objectToSpawn.transform.position = transform.position;
         objectToSpawn.gameObject.SetActive(true);
 
         _pools[index].Enqueue(objectToSpawn);
