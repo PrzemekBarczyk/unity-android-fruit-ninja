@@ -1720,6 +1720,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1050114599}
   - component: {fileID: 1050114600}
+  - component: {fileID: 1050114596}
   m_Layer: 0
   m_Name: Blade
   m_TagString: Blade
@@ -1727,6 +1728,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1050114596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050114595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c275eebf3ecd12247b7d8927aee8e6d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comboScorePrefab: {fileID: -1497993096260814391, guid: 17fc4a81f343aa943a087e48fe96dea0, type: 3}
+  canvas: {fileID: 773784586}
+  maxTimeToAcceptCombo: 0.15
 --- !u!4 &1050114599
 Transform:
   m_ObjectHideFlags: 0
@@ -1754,11 +1770,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bladeTrailPrefab: {fileID: 8810736697684925855, guid: 4f5344cb5bb52ba4abbe42dfb27dbc61, type: 3}
+  comboManager: {fileID: 1050114596}
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
   raycastOffset: {x: 0, y: 0, z: -5}
-  minCutVelocity: 0.1
 --- !u!1 &1089083051
 GameObject:
   m_ObjectHideFlags: 0
@@ -2633,7 +2649,7 @@ MonoBehaviour:
   - _prefab: {fileID: 4468391891414428176, guid: 9f063c5e5835cbd4b8dc54a6c0b45db4, type: 3}
     _size: 8
   minSpawnRate: 0.1
-  maxSpawnRate: 2
+  maxSpawnRate: 1
   maxVerticalForce: 14
   minVerticalForce: 10
   maxHorizontalForce: 5

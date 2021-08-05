@@ -13,6 +13,7 @@ public class Target : MonoBehaviour
     [SerializeField] int points = 1;
 
     [SerializeField] bool isLethal;
+    public bool IsLethal { get => isLethal; }
 
     [SerializeField] float destroyPosY = -6f;
 
@@ -42,7 +43,7 @@ public class Target : MonoBehaviour
         }
     }
 
-    public void CutWithBlade(Vector3 hitPosititon)
+    public void OnTargetHit(Vector3 hitPosititon)
 	{
         if (gameObject != null)
         {

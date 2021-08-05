@@ -5,6 +5,8 @@ public class Blade : MonoBehaviour
     [SerializeField] GameObject bladeTrailPrefab;
     GameObject bladeTrailInstantion;
 
+    [SerializeField] ComboManager comboManager;
+
     [SerializeField] LayerMask targetLayer;
 
     [SerializeField] Vector3 raycastOffset = new Vector3(0f, 0f, -5f); // to avoid casting rays from inside of targets
@@ -39,7 +41,9 @@ public class Blade : MonoBehaviour
                 RaycastHit rayHit;
                 if (Physics.Raycast(transform.position + raycastOffset, Vector3.forward, out rayHit, 100f, targetLayer))
                 {
-                    rayHit.transform.GetComponent<Target>().CutWithBlade(transform.position);
+                    Target slicedTarget = rayHit.transform.GetComponent<Target>();
+                    comboManager.OnTargetHit(slicedTarget, rayHit.point);
+                    slicedTarget.OnTargetHit(transform.position);
                 }
             }
         }
