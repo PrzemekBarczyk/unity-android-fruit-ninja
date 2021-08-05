@@ -3,14 +3,12 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
-    [Header("Object Pooler")]
-
-    [SerializeField] List<Pool> _poolsToCreate;
+    [SerializeField] List<PooledObject> _pooledObjects;
 
     List<Queue<Target>> _pools;
 
     [System.Serializable]
-    public class Pool
+    public class PooledObject
 	{
         [SerializeField] Target _prefab;
         [SerializeField] int _size;
@@ -19,17 +17,17 @@ public class ObjectPooler : MonoBehaviour
         public int Size { get => _size; }
 	}
 
-    protected virtual void Start()
+    void Start()
     {
         _pools = new List<Queue<Target>>();
 
-        foreach (Pool poolToCreate in _poolsToCreate)
+        foreach (PooledObject pooledObject in _pooledObjects)
 		{
             Queue<Target> pool = new Queue<Target>();
 
-            for (int i = 0; i < poolToCreate.Size; i++)
+            for (int i = 0; i < pooledObject.Size; i++)
 			{
-                Target obj = Instantiate(poolToCreate.Prefab);
+                Target obj = Instantiate(pooledObject.Prefab);
                 obj.gameObject.SetActive(false);
                 obj.transform.SetParent(transform);
                 pool.Enqueue(obj);
@@ -39,20 +37,20 @@ public class ObjectPooler : MonoBehaviour
 		}
     }
 
-    protected Target SpawnFromPool(int index)
+    public Target GetFromPool(int poolIndex)
 	{
-        Target objectToSpawn = _pools[index].Dequeue();
+        Target objectToSpawn = _pools[poolIndex].Dequeue();
 
         objectToSpawn.transform.position = transform.position;
         objectToSpawn.gameObject.SetActive(true);
 
-        _pools[index].Enqueue(objectToSpawn);
+        _pools[poolIndex].Enqueue(objectToSpawn);
 
         return objectToSpawn;
     }
 
-    protected int PoolSize()
+    public int PoolSize()
 	{
-        return _poolsToCreate.Count;
+        return _pooledObjects.Count;
 	}
 }

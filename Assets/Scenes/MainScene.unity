@@ -2608,6 +2608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1751316443}
   - component: {fileID: 1751316442}
+  - component: {fileID: 1751316444}
   m_Layer: 0
   m_Name: Spawn Manager
   m_TagString: Untagged
@@ -2627,27 +2628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5cf968cf06fa1249a78b81d4c8432a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _poolsToCreate:
-  - _prefab: {fileID: -1774034766663812841, guid: c13306d1f1d9a1a489199ef77f9dba89, type: 3}
-    _size: 8
-  - _prefab: {fileID: 623854349770038385, guid: c2f4b43f266dc11439efef86830dafb4, type: 3}
-    _size: 8
-  - _prefab: {fileID: 931673624885942058, guid: 666ff701b211d6440b7bd44aa7b3abfa, type: 3}
-    _size: 5
-  - _prefab: {fileID: -9091723381210896725, guid: bd519f706f8c5cf4dad9fed04ab5b64b, type: 3}
-    _size: 8
-  - _prefab: {fileID: 918389294767368237, guid: 10d25933610222845ad3760a855829c4, type: 3}
-    _size: 8
-  - _prefab: {fileID: 2111292494161331910, guid: 245ebd2bf811d4f45a1d5dcd8c327131, type: 3}
-    _size: 8
-  - _prefab: {fileID: -3904276442019377759, guid: 4949a22a2c444b0459d7289aae77be28, type: 3}
-    _size: 8
-  - _prefab: {fileID: 8890026982794900888, guid: 06cdf427476835b42837c1ca7f8cdbd1, type: 3}
-    _size: 8
-  - _prefab: {fileID: 1430769599019246730, guid: 5b10c1fadcedc4347b929c94cb50d5d3, type: 3}
-    _size: 8
-  - _prefab: {fileID: 4468391891414428176, guid: 9f063c5e5835cbd4b8dc54a6c0b45db4, type: 3}
-    _size: 8
+  targetsPooler: {fileID: 1751316444}
   minSpawnRate: 0.1
   maxSpawnRate: 1
   maxVerticalForce: 14
@@ -2668,6 +2649,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1751316444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751316441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bac2274e42eb34469952f9cd022f337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pooledObjects:
+  - _prefab: {fileID: -1774034766663812841, guid: c13306d1f1d9a1a489199ef77f9dba89, type: 3}
+    _size: 8
+  - _prefab: {fileID: 623854349770038385, guid: c2f4b43f266dc11439efef86830dafb4, type: 3}
+    _size: 8
+  - _prefab: {fileID: -9091723381210896725, guid: bd519f706f8c5cf4dad9fed04ab5b64b, type: 3}
+    _size: 8
+  - _prefab: {fileID: 918389294767368237, guid: 10d25933610222845ad3760a855829c4, type: 3}
+    _size: 8
+  - _prefab: {fileID: 2111292494161331910, guid: 245ebd2bf811d4f45a1d5dcd8c327131, type: 3}
+    _size: 8
+  - _prefab: {fileID: -3904276442019377759, guid: 4949a22a2c444b0459d7289aae77be28, type: 3}
+    _size: 8
+  - _prefab: {fileID: 8890026982794900888, guid: 06cdf427476835b42837c1ca7f8cdbd1, type: 3}
+    _size: 8
+  - _prefab: {fileID: 1430769599019246730, guid: 5b10c1fadcedc4347b929c94cb50d5d3, type: 3}
+    _size: 8
+  - _prefab: {fileID: 4468391891414428176, guid: 9f063c5e5835cbd4b8dc54a6c0b45db4, type: 3}
+    _size: 8
+  - _prefab: {fileID: 931673624885942058, guid: 666ff701b211d6440b7bd44aa7b3abfa, type: 3}
+    _size: 5
 --- !u!1 &1939896118
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,8 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-public class SpawnManager : ObjectPooler
+public class SpawnManager : MonoBehaviour
 {
+    [Header("Targets Pooler")]
+    [SerializeField] ObjectPooler targetsPooler;
+
     [Header("Targets Spawn Rate")]
     [SerializeField] float minSpawnRate = 0.05f;
     [SerializeField] float maxSpawnRate = 2f;
@@ -15,9 +18,8 @@ public class SpawnManager : ObjectPooler
 
     GameManager gameManager;
 
-    protected override void Start()
+    void Start()
     {
-        base.Start();
         gameManager = GameManager.Instance;
         StartCoroutine(SpawnAndThrowTarget());
     }
@@ -30,8 +32,8 @@ public class SpawnManager : ObjectPooler
 
             if (gameManager.State == State.Playing)
 			{
-                int randomTargetIndex = Random.Range(0, PoolSize());
-                Target newTarget = SpawnFromPool(randomTargetIndex);
+                int randomTargetIndex = Random.Range(0, targetsPooler.PoolSize());
+                Target newTarget = targetsPooler.GetFromPool(randomTargetIndex);
                 newTarget.MyRigidbody.velocity = Vector3.zero;
                 newTarget.MyRigidbody.angularVelocity = Vector3.zero;
                 newTarget.MyRigidbody.AddForce(RandomForce(), ForceMode.Impulse);
