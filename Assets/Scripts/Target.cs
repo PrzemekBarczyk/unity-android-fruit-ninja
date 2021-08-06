@@ -27,7 +27,7 @@ public class Target : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.Instance;
-        spawnManager = GameObject.Find("Spawn Manager");
+        spawnManager = GameObject.Find("Spawn Managers");
     }
 
     void Update()
@@ -84,4 +84,39 @@ public class Target : MonoBehaviour
         int randomIndex = Random.Range(0, sliceSFXs.Length);
         return sliceSFXs[randomIndex];
 	}
+
+    public void ResetForces()
+	{
+        MyRigidbody.velocity = Vector3.zero;
+        MyRigidbody.angularVelocity = Vector3.zero;
+	}
+
+    public void AddForce(Vector3 force)
+	{
+        MyRigidbody.AddForce(force, ForceMode.Impulse);
+	}
+
+    public void AddRandomForce(float minVerticalForce, float maxVerticalForce, float maxHorizontalForce)
+	{
+        AddRandomVerticalForce(minVerticalForce, maxVerticalForce);
+        AddRandomHorizontalForce(maxHorizontalForce);
+	}
+
+    public void AddRandomVerticalForce(float minVerticalForce, float maxVerticalForce)
+	{
+        Vector3 randomForce = Vector3.up * Random.Range(minVerticalForce, maxVerticalForce);
+        MyRigidbody.AddForce(randomForce, ForceMode.Impulse);
+    }
+
+    public void AddRandomHorizontalForce(float maxHorizontalForce)
+    {
+        Vector3 randomForce = Vector3.right * Random.Range(-maxHorizontalForce, maxHorizontalForce);
+        MyRigidbody.AddForce(randomForce, ForceMode.Impulse);
+    }
+
+    public void AddRandomTorque(float maxTorque)
+    {
+        Vector3 randomTorque = new Vector3(Random.Range(-maxTorque, maxTorque), Random.Range(-maxTorque, maxTorque), Random.Range(-maxTorque, maxTorque));
+        MyRigidbody.AddTorque(randomTorque, ForceMode.Impulse);
+    }
 }
