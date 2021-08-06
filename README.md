@@ -7,7 +7,7 @@ Simple replica of mobile game.
 * [Technologies](#technologies)
 
 ## General info
-During game targets spawn below the screen at random rate from where they are thrown onto screen. Player goal is to slice food targets before they leave screen bottom and avoid bombs. Each missed food target and sliced bomb take us one live. When player loose three lives, game ends.
+During game targets spawn below the screen at random rate from where they are thrown onto screen. Player goal is to slice food targets before they leave screen bottom and avoid bombs. Each missed food target take us one live. When player loose three lives, game ends. Slicing bomb will end game instantly.
 
 ## Screenshoots and video
 ![main menu](https://user-images.githubusercontent.com/62331993/128024506-7c3d5084-d8e9-4846-ac22-74be441a8932.png)
